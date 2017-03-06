@@ -15,24 +15,26 @@ import {
   View,
   Navigator,
 } from 'react-native';
-import TaskList from './TaskList';
+import UserList from './UserList';
 import todosData from './users.json';
 import api from './utilities/api';
 export default class todo2 extends Component {
 
-    /*constructor(props, context) {
-      super(props, context);
-
-      this.state = {
-        todos: todosData
-      };
-
-    }*/
     constructor(props, context) {
       super(props, context);
 
       this.state = {
-        moviesD: null
+        usersD: todosData
+      };
+
+    }
+    /*
+    // fetch method
+    constructor(props, context) {
+      super(props, context);
+
+      this.state = {
+        usersD: null
       };
 
     }
@@ -46,10 +48,10 @@ res.header('Access-Control-Allow-Origin', 'example.com');
       .then((res) => res.json())
       .then((resJ) => {
         this.setState({
-          moviesD: resJ.users
+          usersD: resJ.users
         })
       })
-    }
+    }*/
 
     /*componentWillMount() {
       api.getRovers().then((res) => {
@@ -61,20 +63,20 @@ res.header('Access-Control-Allow-Origin', 'example.com');
 
     onAddStarted() {
       this.nav.push({
-        name: 'taskform',
+        id: 'userform',
       });
     }
 
     renderScene(route, nav) {
-      switch(route.name) {
-        case 'taskform':
+      switch(route.id) {
+        case 'userform':
           return (<Text>add form comes here</Text>);
-        default:
+        case 'userlist':
           return (
             <View style={styles.container}>
-              <TaskList
+              <UserList
                 onAddStarted={this.onAddStarted.bind(this)}
-                movies={this.state.moviesD}/>
+                users={this.state.usersD}/>
             </View>
           );
       }
@@ -96,6 +98,7 @@ res.header('Access-Control-Allow-Origin', 'example.com');
         />
       );
     }*/
+    /*
     render() {
       return (
         <View style={styles.container}>
@@ -103,6 +106,19 @@ res.header('Access-Control-Allow-Origin', 'example.com');
             onAddStarted={this.onAddStarted.bind(this)}
             movies={this.state.moviesD}/>
         </View>
+      );
+    }*/
+
+    render() {
+      return (
+        <Navigator
+          initialRoute={{id: 'userlist'}}
+          configureScene={this.configureScene}
+          ref={((nav) => {
+            this.nav = nav;
+          })}
+          renderScene={this.renderScene.bind(this)}
+        />
       );
     }
 }
