@@ -1,0 +1,24 @@
+[
+{
+  "fname": "Reda",
+  "lname": "Derahim",
+  "img": "./img/"
+},
+{
+
+  "fname": "Amr",
+  "lname": "Mohamed",
+  "img": "./img/"
+},
+{
+
+  "fname": "Alaa",
+  "lname": "Rezk",
+  "img": "./img/"
+},
+{
+  "fname": "Mohamed",
+  "lname": "Elsayed",
+  "img": "./img/"
+}
+]
