@@ -6,6 +6,7 @@ import {
   ListView,
   TouchableHighlight,
   Text,
+  Image,
 } from 'react-native';
 const styles = StyleSheet.create({
   container: {
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
 });
 import TaskRow from './TaskRow';
 
-export default class TaskList extends Component {
+export default class UserList extends Component {
 
   constructor(props, context) {
 
@@ -73,16 +74,27 @@ export default class TaskList extends Component {
           </TouchableHighlight>
       </View>
     );*/
-    if(this.props.movies) {
-      var res = this.props.movies.map((item, i) => {
+    if(this.props.users) {
+      var res = this.props.users.map((item, i) => {
         return (
-          <Text key={i}>{item.first_name}</Text>
+          <View>
+            <Text key={i}>{item.fname}</Text>
+            <Text key={i+1}>{item.lname}</Text>
+            <Image key={i+2} source={{uri: item.img}}
+            style={{width: 40, height: 40}} />
+          </View>
         );
       })
     }
     return (
       <View>
         {res}
+        <TouchableHighlight
+          onPress={this.props.onAddStarted}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Add User</Text>
+        </TouchableHighlight>
       </View>
     );
   }
