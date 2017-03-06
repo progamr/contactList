@@ -16,10 +16,11 @@ import {
   Navigator,
 } from 'react-native';
 import UserList from './UserList';
+import CreateUser from './CreateUser';
 import todosData from './users.json';
 import api from './utilities/api';
 export default class todo2 extends Component {
-
+  /*
     constructor(props, context) {
       super(props, context);
 
@@ -28,7 +29,7 @@ export default class todo2 extends Component {
       };
 
     }
-    /*
+*/
     // fetch method
     constructor(props, context) {
       super(props, context);
@@ -38,20 +39,18 @@ export default class todo2 extends Component {
       };
 
     }
-/*
-res.header('Access-Control-Allow-Origin', 'example.com');
- res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-*/
+
+
     componentDidMount() {
-      fetch('http://192.168.0.125/workspace/start/start.php')
+      fetch('http://192.168.0.127/levelUpworkspace/laravel/react/public/users')
       .then((res) => res.json())
       .then((resJ) => {
         this.setState({
           usersD: resJ.users
         })
       })
-    }*/
+    }
+
 
     /*componentWillMount() {
       api.getRovers().then((res) => {
@@ -77,6 +76,8 @@ res.header('Access-Control-Allow-Origin', 'example.com');
               <UserList
                 onAddStarted={this.onAddStarted.bind(this)}
                 users={this.state.usersD}/>
+                <CreateUser />
+
             </View>
           );
       }

@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   Text,
   Image,
+  TextInput,
 } from 'react-native';
 const styles = StyleSheet.create({
   container: {
@@ -46,6 +47,11 @@ export default class UserList extends Component {
       dataSource: ds.cloneWithRows(props.rovers),
     };*/
 
+    // this.state = {
+    //   username: '',
+    //   password: '',
+    //   pendingLoginRequest: false,
+    // }
 
 
   }
@@ -78,16 +84,16 @@ export default class UserList extends Component {
       var res = this.props.users.map((item, i) => {
         return (
           <View>
-            <Text key={i}>{item.fname}</Text>
-            <Text key={i+1}>{item.lname}</Text>
-            <Image key={i+2} source={{uri: item.img}}
+            <Text key={i}>{item.first_name}</Text>
+            <Text key={i+1}>{item.last_name}</Text>
+            <Image key={i+2} source={{uri: item.image}}
             style={{width: 40, height: 40}} />
           </View>
         );
       })
     }
     return (
-      <View>
+      <View style={styles.container}>
         {res}
         <TouchableHighlight
           onPress={this.props.onAddStarted}
@@ -95,11 +101,16 @@ export default class UserList extends Component {
         >
           <Text style={styles.buttonText}>Add User</Text>
         </TouchableHighlight>
+
+        <View style={styles.formContainer}>
+
+        </View>
       </View>
     );
   }
 
 }
+
 
 /*TaskList.propTypes = {
   onAddStarted: React.PropTypes.func.isRequired,
