@@ -76,7 +76,7 @@ export default class TaskList extends Component {
     if(this.props.movies) {
       var res = this.props.movies.map((item, i) => {
         return (
-          <Text key={i}>{item.title}</Text>
+          <Text key={i}>{item.first_name}</Text>
         );
       })
     }

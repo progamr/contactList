@@ -36,11 +36,11 @@ export default class todo2 extends Component {
     }
 
     componentDidMount() {
-      fetch('https://facebook.github.io/react-native/movies.json')
+      fetch('http://localhost/levelUpworkspace/laravel/start/start.php')
       .then((res) => res.json())
       .then((resJ) => {
         this.setState({
-          moviesD: resJ.movies
+          moviesD: resJ.users
         })
       })
     }
