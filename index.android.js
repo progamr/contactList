@@ -3,9 +3,11 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+ 'use strict';
 
 import React, { Component } from 'react';
 import Request from 'superagent';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -34,9 +36,13 @@ export default class todo2 extends Component {
       };
 
     }
-
+/*
+res.header('Access-Control-Allow-Origin', 'example.com');
+ res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+*/
     componentDidMount() {
-      fetch('http://localhost/levelUpworkspace/laravel/start/start.php')
+      fetch('http://192.168.0.125/workspace/start/start.php')
       .then((res) => res.json())
       .then((resJ) => {
         this.setState({
